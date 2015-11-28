@@ -1,6 +1,7 @@
 import BaseRouter from './base/router';
 import vent from './modules/vent';
-import currentUser from './stores/current_user';
+import HomeController from './controllers/home';
+import WeatherController from './controllers/weather';
 
 export default class Router extends BaseRouter {
   run() {
@@ -16,10 +17,12 @@ export default class Router extends BaseRouter {
   }
 
   router() {
-    this.route('/', 'weather.index');
+    this.route('/', 'home.index');
+    this.route('/weather', 'weather.index');
   }
 }
 
 Router.prototype.controllers = {
-  weather: require('./controllers/weather'),
+  home: HomeController,
+  weather: WeatherController,
 };
