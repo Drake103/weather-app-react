@@ -12,7 +12,8 @@ var
   nib = require('nib'),
   pkg = require('./package.json'),
   rename = require('gulp-rename'),
-  symlink = require('gulp-symlink');
+  symlink = require('gulp-symlink'),
+  babelify = require('babelify');
 
 SYMLINKS = {
   config: './config > node_modules',
@@ -73,13 +74,20 @@ gulp.task('js', function() {
   var bundle = browserify({
     entries: ['./src/index.js'],
     paths: ['./node_modules'],
+    debug: true,
   });
+
+  bundle.transform(babelify, { presets: ['es2015', 'react'] });
 
   bundle.exclude('underscore');
   bundle.require('lodash', { expose: 'underscore' });
+  bundle.require('./config/client', { expose: 'config' });
+  bundle.require('./config/langs/client', { expose: 'config/langs' });
 
   bundle.bundle()
-    .on('error', function(err) { console.log(err.message); })
+    .on('error', function(err) {
+      console.log(err.message);
+    })
     .pipe(source('script.js'))
     .pipe(gulp.dest('./public/assets'));
 });
@@ -93,7 +101,7 @@ gulp.task('jade', function() {
   .pipe(gulp.dest('./public'));
 });
 
-gulp.task('default', ['lint', 'js', 'stylus', 'jade']);
+gulp.task('default', ['js', 'stylus', 'jade']);
 
 gulp.task('serve', ['default', 'browser-sync'], function() {
   gulp.watch('./src/**/*.js', ['js']);

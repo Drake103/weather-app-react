@@ -8,4 +8,7 @@ export default {
     secret: 'manymanyyearsago',
     maxAge: 86400000,
   },
+
+  env: 'dev',
+  debug: true,
 };

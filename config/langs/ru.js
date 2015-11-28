@@ -3,9 +3,12 @@ export default {
   },
 
   brand: {
+    name: 'WeathApp',
+
   },
 
   titles: {
+    index: 'Index',
   },
 
   captions: {

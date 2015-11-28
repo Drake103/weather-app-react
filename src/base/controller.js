@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import alt from '../alt';
 
 export default class Controller {
@@ -25,7 +26,7 @@ export default class Controller {
   }
 
   renderView(View, callback) {
-    let view = React.render(<View />, window.appNode, callback);
+    let view = ReactDOM.render(<View />, window.appNode, callback);
     window.titleNode.innerText = view.title();
   }
 }
