@@ -13,7 +13,8 @@ var
   pkg = require('./package.json'),
   rename = require('gulp-rename'),
   symlink = require('gulp-symlink'),
-  babelify = require('babelify');
+  babelify = require('babelify'),
+  imagemin = require('gulp-imagemin');
 
 SYMLINKS = {
   config: './config > node_modules',
@@ -101,9 +102,10 @@ gulp.task('jade', function() {
   .pipe(gulp.dest('./public'));
 });
 
-gulp.task('default', ['js', 'stylus', 'jade']);
+gulp.task('default', ['images', 'js', 'stylus', 'jade']);
 
 gulp.task('serve', ['default', 'browser-sync'], function() {
+  gulp.watch('./images/**/*', ['images']);
   gulp.watch('./src/**/*.js', ['js']);
   gulp.watch('./stylesheets/**/*.styl', ['stylus']);
   gulp.watch('./template/**/*.jade', ['jade']);

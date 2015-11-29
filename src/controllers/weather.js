@@ -1,8 +1,13 @@
 import Controller from '../base/controller';
-import WeatherIndexView from '../views/weather_index';
+import WeatherCurrentView from '../views/weather_current';
+import WeatherForecastView from '../views/weather_forecast';
 
 export default class WeatherController extends Controller {
-  index(ctx, done) {
-    this.renderView(WeatherIndexView, done);
+  current(ctx, done) {
+    this.renderView(WeatherCurrentView, done);
+  }
+
+  forecast(ctx, done) {
+    this.renderView(WeatherForecastView, done);
   }
 }

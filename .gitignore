@@ -74,5 +74,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-./public/*
-!./public/vendor/*
+public
+!public/vendor/*
