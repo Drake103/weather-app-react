@@ -18,7 +18,9 @@ export default class Router extends BaseRouter {
 
   router() {
     this.route('/', 'home.index');
-    this.route('/weather', 'weather.index');
+    this.route('/weather', 'weather.current');
+    this.route('/weather/current', 'weather.current');
+    this.route('/weather/forecast', 'weather.forecast');
   }
 }
 

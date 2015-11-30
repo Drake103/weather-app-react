@@ -1,5 +1,7 @@
 import React from 'react';
 import Component from '../base/component';
+import Navbar from './components/navbar';
+import Footer from './components/footer';
 
 export default class HomeIndexView extends Component {
   title() {
@@ -8,9 +10,11 @@ export default class HomeIndexView extends Component {
 
   render() {
     return (
-      <div id='wrapper'>
+      <div className='container'>
+        <Navbar />
         <div id='page-content-wrapper'>
         </div>
+        <Footer />
       </div>);
   }
 }

@@ -20,5 +20,5 @@ export default class Model extends Backbone.Model {
 }
 
 Model.prototype.$ = $.ajax;
-Model.prototype.apiRoot = config.api_root || config._client.api_root;
+Model.prototype.apiRoot = config.apiRoot || config._client.apiRoot;
 Model.prototype.idAttribute = '_id';

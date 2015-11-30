@@ -36,7 +36,7 @@
     "classnames": "^2.2.1",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.5.2",
-    "gulp-imagemin": "^2.2.1",
+    "gulp-imagemin": "^2.4.0",
     "gulp-jade": "^1.0.1",
     "gulp-jshint": "^1.11.0",
     "gulp-rename": "^1.2.2",

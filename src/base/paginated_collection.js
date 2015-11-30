@@ -53,5 +53,5 @@ export default class PaginatedCollection extends Collection {
 }
 
 PaginatedCollection.prototype.$ = $.ajax;
-PaginatedCollection.prototype.apiRoot = config.api_root || config._client.api_root;
+PaginatedCollection.prototype.apiRoot = config.apiRoot || config._client.apiRoot;
 PaginatedCollection.prototype.idAttribute = '_id';

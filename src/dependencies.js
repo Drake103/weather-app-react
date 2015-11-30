@@ -2,7 +2,7 @@ import _ from 'lodash';
 import $ from 'jquery';
 import Backbone from 'backbone';
 import LocalStorage from 'backbone.localstorage';
-import config from '../config/default';
+import clientConfig from '../config/client/default';
 import langs from '../config/langs';
 import alt from './alt';
 
@@ -18,7 +18,7 @@ let env = {
 window.app = {
   env: env,
   langs: _.pick(langs, [env.lang]),
-  config: config._client,
+  config: clientConfig,
   stores: alt.flush(),
 };
 

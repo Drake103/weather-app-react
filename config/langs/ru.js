@@ -15,6 +15,10 @@ export default {
   },
 
   links: {
+    home: 'Home',
+    weather: 'Weather',
+    currentWeather: 'Current Weather',
+    forecastWeather: 'Forecast Weather',
   },
 
   fields: {
