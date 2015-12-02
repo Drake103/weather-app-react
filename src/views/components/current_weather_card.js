@@ -1,17 +1,18 @@
 import React from 'react';
 import Component from '../../base/component';
 
-export default class WeatherCard extends Component {
+export default class CurrentWeatherCard extends Component {
   render() {
-    let wData = this.props.weatherData;
+    let info = this.props.weatherInfo;
 
     return (
       <div className='card blue-grey darken-1 weather-card'>
         <div className='card-content white-text'>
-          <span className='card-title'>{wData.date.toString}</span>
+          <p>{info.name}</p>
+          <span className='card-title'>{info.dt}</span>
           <p><img src='/images/weather/weather-clear.png' /></p>
-          <p>{wData.description}</p>
-          <p>{wData.tempMin} - <span>{wData.temp}</span> {wData.tempMax}</p>
+          <p>{info.weather.main}</p>
+          <p>{info.main.temp_min} - <span>{info.main.temp}</span> {info.main.temp_max}</p>
         </div>
       </div>);
   }
