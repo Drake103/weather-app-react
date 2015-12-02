@@ -1,30 +1,31 @@
+import _ from 'lodash';
 import React from 'react';
 import Component from '../base/component';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
-import WeatherCard from './components/weather_card';
+import ForecastWeatherCityGroup from './components/forecast_weather_city_group';
+import ForecastWeatherStore from '../stores/forecast_weather';
 
 export default class WeatherForecastView extends Component {
   title() {
     return `${this.lang.brand.name} | ${this.lang.titles.index}`;
   }
 
+  initState() {
+    return ForecastWeatherStore.getState();
+  }
+
   render() {
-    let weatherData = {
-      date: new Date(),
-      description: 'Sun',
-      temp: 20,
-      tempMin: -20,
-      tempMax: 50,
-    };
+    let cities = [{id: 524901, name: 'Moscow'}];
+
+    let cityGroups = _.map(cities, city => <ForecastWeatherCityGroup key={city.id} city={city} />);
 
     return (
       <div className='container'>
         <Navbar />
-          <ul className='collection'>
-            <li className='collection-item'><WeatherCard weatherData={weatherData} /><WeatherCard weatherData={weatherData} /></li>
-            <li className='collection-item'><WeatherCard weatherData={weatherData} /><WeatherCard weatherData={weatherData} /></li>
-          </ul>
+        <ul className='collection'>
+          {cityGroups}
+        </ul>
         <Footer />
       </div>);
   }
