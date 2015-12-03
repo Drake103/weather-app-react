@@ -4,7 +4,7 @@ import Component from '../../base/component';
 export default class Footer extends Component {
   render() {
     return (
-      <footer className='page-footer'>
+      <footer className='page-footer blue-grey lighten-2'>
         <div className='container'>
           <div className='row'>
             <div className='col l6 s12'>
