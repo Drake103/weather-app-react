@@ -21,7 +21,7 @@ export default class WeatherForecastView extends Component {
     let cityGroups = _.map(cities, city => <ForecastWeatherCityGroup key={city.id} city={city} />);
 
     return (
-      <div className='container'>
+      <div>
         <Navbar />
         <ul className='collection'>
           {cityGroups}

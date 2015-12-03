@@ -10,9 +10,9 @@ export default class HomeIndexView extends Component {
 
   render() {
     return (
-      <div className='container'>
+      <div>
         <Navbar />
-        <div id='page-content-wrapper'>
+        <div id='page-content-wrapper' height='800'>
         </div>
         <Footer />
       </div>);

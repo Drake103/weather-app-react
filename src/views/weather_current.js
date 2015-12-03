@@ -35,9 +35,11 @@ export default class WeatherCurrentView extends Component {
     let weatherCards = _.map(weatherInfos, wi => <CurrentWeatherCard key={wi.id} weatherInfo={wi} />);
 
     return (
-      <div className='container'>
+      <div>
         <Navbar />
-        {weatherCards}
+        <div className='current-weather-group'>
+          {weatherCards}
+        </div>
         <Footer />
       </div>);
   }
