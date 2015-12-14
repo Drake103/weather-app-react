@@ -11,6 +11,11 @@ window.Backbone.LocalStorage = LocalStorage;
 window.appNode = document.getElementById('app-node');
 window.titleNode =  document.getElementsByTagName('title')[0];
 
+localStorage.clear();
+let cities = new LocalStorage('CityCollection');
+cities.create({id: 524901, name: 'Moscow'});
+cities.save();
+
 let env = {
   lang: 'ru',
 };

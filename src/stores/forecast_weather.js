@@ -7,11 +7,16 @@ class ForecastWeatherStore {
 
     this.bindListeners({
       handleUpdateForeactWeather: ForecastWeatherActions.UPDATE_FORECAST_WEATHER,
+      handleUpdateInfoForCity: ForecastWeatherActions.UPDATE_INFO_FOR_CITY,
     });
   }
 
   handleUpdateForeactWeather(weatherInfoByCities) {
     this.weatherInfoByCities = weatherInfoByCities;
+  }
+
+  handleUpdateInfoForCity(cityWeatherInfos) {
+    this.weatherInfoByCities[cityWeatherInfos.cityId] = cityWeatherInfos.weatherInfos;
   }
 }
 
