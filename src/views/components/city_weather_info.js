@@ -9,7 +9,7 @@ export default class CityWeatherInfo extends Component {
     return (
       <li className='collection-item'>
         <p>{city.name}</p>
-        <div>
+        <div className='city-weather-groups'>
           <CurrentWeatherCard city={city} />
           <ForecastWeatherCityGroup city={city} />
         </div>

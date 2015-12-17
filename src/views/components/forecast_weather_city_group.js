@@ -33,7 +33,7 @@ export default class ForecastWeatherCityGroup extends Component {
 
     let dayWeatherInfos = _.map(cityWeatherInfos, di => <ForecastWeatherDayInfo key={di.dt} dayInfo={di} />);
     return (
-      <div>
+      <div className='forecast-weather-group'>
         {dayWeatherInfos}
       </div>);
   }

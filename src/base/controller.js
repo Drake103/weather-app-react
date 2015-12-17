@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import alt from '../alt';
+import {IntlProvider} from 'react-intl';
 
 export default class Controller {
   constructor() {
@@ -26,7 +27,7 @@ export default class Controller {
   }
 
   renderView(View, callback) {
-    let view = ReactDOM.render(<View />, window.appNode, callback);
+    let view = ReactDOM.render(<IntlProvider locale='en'><View /></IntlProvider>, window.appNode, callback);
     window.titleNode.innerText = view.title();
   }
 }

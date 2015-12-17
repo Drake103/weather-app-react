@@ -1,0 +1,20 @@
+weather-card-width = 200px
+weather-card-margin = 5px;
+
+.weather-card
+  margin weather-card-margin
+  width weather-card-width
+
+.city-weather-groups
+  margin-left (weather-card-width + 2  *weather-card-margin)
+  .current-weather-group
+    float left
+    margin-left -(weather-card-width + 2  *weather-card-margin)
+    width (weather-card-width + 2  *weather-card-margin)
+
+  .forecast-weather-group
+    float right
+    width 100%
+
+    .weather-card
+      float left
