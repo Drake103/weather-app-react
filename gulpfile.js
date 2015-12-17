@@ -15,6 +15,7 @@ var
   symlink = require('gulp-symlink'),
   babelify = require('babelify'),
   imagemin = require('gulp-imagemin');
+var express = require('express');
 
 SYMLINKS = {
   config: './config > node_modules',
@@ -35,6 +36,17 @@ gulp.task('symlink', function() {
 });
 
 // Static server
+gulp.task('static-server', function() {
+  var app = express();
+  app.use(express.static('./public'));
+  var server = app.listen(3000, function() {
+    var host = server.address().address;
+    var port = server.address().port;
+
+    console.log('Example app listening at http://%s:%s', host, port);
+  });
+});
+
 gulp.task('browser-sync', function() {
   browserSync.init({
     server: {
@@ -104,7 +116,7 @@ gulp.task('jade', function() {
 
 gulp.task('default', ['images', 'js', 'stylus', 'jade']);
 
-gulp.task('serve', ['default', 'browser-sync'], function() {
+gulp.task('serve', ['default', 'static-server'], function() {
   gulp.watch('./images/**/*', ['images']);
   gulp.watch('./src/**/*.js', ['js']);
   gulp.watch('./stylesheets/**/*.styl', ['stylus']);

@@ -19,6 +19,8 @@ export default class ForecastWeather extends Backbone.Collection {
     this.city = resp.city;
     this.count = resp.count;
 
+    _.forEach(resp.list, x => x.date = new Date(x.dt * 1000));
+
     return resp.list;
   }
 }

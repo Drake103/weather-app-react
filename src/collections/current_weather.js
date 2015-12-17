@@ -17,6 +17,8 @@ export default class CurrentWeather extends Backbone.Collection {
 
   parse(resp) {
     this.count = resp.cnt;
+    _.forEach(resp.list, x => x.date = new Date(x.dt * 1000));
+
     return resp.list;
   }
 }
