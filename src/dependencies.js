@@ -13,7 +13,7 @@ window.titleNode =  document.getElementsByTagName('title')[0];
 
 localStorage.clear();
 let cities = new LocalStorage('CityCollection');
-cities.create({id: 524901, name: 'Moscow'});
+cities.create({id: 1526273, name: 'Astana'});
 cities.save();
 
 let env = {
