@@ -1,6 +1,7 @@
 import React from 'react';
 import Component from '../../base/component';
 import { FormattedNumber, FormattedDate } from 'react-intl';
+import FormattedTemperature from './formatted_temperature';
 
 export default class ForecastWeatherDayInfo extends Component {
   render() {
@@ -12,7 +13,11 @@ export default class ForecastWeatherDayInfo extends Component {
           <FormattedDate value={dayInfo.date} />
           <p><img src='/images/weather/weather-clear.png' /></p>
           <p>{dayInfo.weather.main}</p>
-          <p>{dayInfo.main.temp_min} - <span>{dayInfo.main.temp}</span> {dayInfo.main.temp_max}</p>
+          <p>
+            {dayInfo.temp.min}
+            <span>{dayInfo.temp.day}</span>
+            {dayInfo.temp.max}
+          </p>
         </div>
       </div>);
   }
