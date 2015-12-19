@@ -43,9 +43,11 @@ export default class WeatherIndexView extends Component {
     return (
       <div>
         <Navbar />
-        <ul className='collection'>
-          {cityGroups}
-        </ul>
+        <div className='container'>
+          <ul className='collection'>
+            {cityGroups}
+          </ul>
+        </div>
         <Footer />
       </div>);
   }

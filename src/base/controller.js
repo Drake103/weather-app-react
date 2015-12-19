@@ -27,7 +27,7 @@ export default class Controller {
   }
 
   renderView(View, callback) {
-    let view = ReactDOM.render(<IntlProvider locale='en'><View /></IntlProvider>, window.appNode, callback);
+    let view = ReactDOM.render(<IntlProvider locale='ru'><View /></IntlProvider>, window.appNode, callback);
     window.titleNode.innerText = view.title();
   }
 }

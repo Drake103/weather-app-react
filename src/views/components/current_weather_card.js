@@ -40,17 +40,13 @@ export default class CurrentWeatherCard extends Component {
 
     return (
       <div className='current-weather-group'>
-        <div className='card orange lighten-2 weather-card'>
-          <div className='card-content'>
-            <span className='card-title'>
-              <FormattedDate value={info.date} />
-            </span>
-            <p><img src='/images/weather/weather-clear.png' /></p>
-            <p>{info.weather.main}</p>
-            <p>
-              <FormattedNumber value={info.main.temp_min} /> - <span>{info.main.temp}</span> {info.main.temp_max}
-            </p>
-          </div>
+        <div className='card-panel orange weather-card'>
+          <span>Now</span>
+          <p><img src='/images/weather/weather-clear.png' /></p>
+          <p>{info.weather.main}</p>
+          <p>
+            <FormattedNumber value={info.main.temp_min} /> - <span>{info.main.temp}</span> {info.main.temp_max}
+          </p>
         </div>
       </div>);
   }
