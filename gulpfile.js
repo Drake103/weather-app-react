@@ -9,13 +9,13 @@ var
   jade = require('gulp-jade'),
   browserify = require('browserify'),
   source = require('vinyl-source-stream'),
-  nib = require('nib'),
   pkg = require('./package.json'),
   rename = require('gulp-rename'),
   symlink = require('gulp-symlink'),
   babelify = require('babelify'),
   imagemin = require('gulp-imagemin');
 var express = require('express');
+var koutoSwiss = require('kouto-swiss');
 
 SYMLINKS = {
   config: './config > node_modules',
@@ -60,7 +60,7 @@ gulp.task('stylus', function() {
     .pipe(stylus({
       paths: [path.join(__dirname, '/node_modules')],
       'include css': true,
-      use: [nib()],
+      use: [koutoSwiss()],
       urlfunc: 'embedurl',
       linenos: true,
       define: {
