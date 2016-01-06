@@ -41,9 +41,9 @@ export default class WeatherIndexView extends Component {
     let cityGroups = _.map(cities, city => <CityWeatherInfo key={city.id} city={city} />);
 
     return (
-      <div>
+      <div className='page-wrapper'>
         <Navbar />
-        <div className='container'>
+        <div className='content-wrapper'>
           <ul className='collection'>
             {cityGroups}
           </ul>
