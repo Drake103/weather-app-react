@@ -7,7 +7,7 @@ export default class CityWeatherInfo extends Component {
   render() {
     let city = this.props.city;
     return (
-      <li className='collection-item'>
+      <li className='city-weather-info'>
         <p>{city.name}</p>
         <div className='city-weather-groups'>
           <CurrentWeatherCard city={city} />

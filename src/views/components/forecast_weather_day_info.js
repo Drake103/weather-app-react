@@ -8,7 +8,7 @@ export default class ForecastWeatherDayInfo extends Component {
     let dayInfo = this.props.dayInfo;
 
     return (
-      <div className='card-panel blue-grey darken-1 weather-card'>
+      <div className='weather-day-info'>
         <FormattedDate value={dayInfo.date} />
         <p><img src='/images/weather/weather-clear.png' /></p>
         <p>{dayInfo.weather.main}</p>

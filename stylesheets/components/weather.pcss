@@ -1,0 +1,29 @@
+.weather-index {
+    clear: fix;
+}
+
+.city-weather-info {
+
+}
+
+.city-weather-groups {
+  $current-weather-group-width: 200px;
+  clear: fix;
+
+  .current-weather-group {
+    float: left;
+    width: $current-weather-group-width;
+  }
+
+  .forecast-weather-group {
+    margin-right: $current-weather-group-width;
+
+    .weather-day-info {
+      float: left;
+    }
+  }
+}
+
+.weather-day-info {
+  border: 1px solid grey;
+}

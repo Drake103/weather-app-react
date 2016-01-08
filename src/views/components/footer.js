@@ -7,7 +7,7 @@ export default class Footer extends Component {
       <footer className='footer-wrapper'>
         <div className='footer-copyright'>
           <div className='container'>
-          | © 2015 GAM
+          | 2016, Drake103
           <a className='grey-text text-lighten-4 right' href='#!'>More Links</a>
           </div>
         </div>

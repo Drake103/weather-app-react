@@ -40,7 +40,7 @@ export default class CurrentWeatherCard extends Component {
 
     return (
       <div className='current-weather-group'>
-        <div className='card-panel orange weather-card'>
+        <div className='weather-day-info'>
           <span>Now</span>
           <p><img src='/images/weather/weather-clear.png' /></p>
           <p>{info.weather.main}</p>
