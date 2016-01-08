@@ -62,19 +62,21 @@ gulp.task('css:build', function() {
   var rename = require('gulp-rename');
 
   var processors = [
+    require('postcss-clearfix'),
+    require('postcss-neat'),
     require('autoprefixer'),
     require('postcss-cssnext'),
     require('precss'),
   ];
 
-  return gulp.src('./stylesheets/index.css')
+  return gulp.src('./stylesheets/index.pcss')
     .pipe(postcss(processors))
     .pipe(rename('style.css'))
     .pipe(gulp.dest('./dist/assets'));
 });
 
 gulp.task('css:watch', function() {
-  gulp.watch('./stylesheets/**/*.css', ['css:build']);
+  gulp.watch('./stylesheets/**/*.pcss', ['css:build']);
 });
 
 gulp.task('images:build', function() {

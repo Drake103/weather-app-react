@@ -43,8 +43,8 @@ export default class WeatherIndexView extends Component {
     return (
       <div className='page-wrapper'>
         <Navbar />
-        <div className='content-wrapper'>
-          <ul className='collection'>
+        <div className='weather-index'>
+          <ul className='cities-list'>
             {cityGroups}
           </ul>
         </div>
