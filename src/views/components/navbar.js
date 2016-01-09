@@ -6,7 +6,7 @@ export default class Navbar extends Component {
     return (
       <div className='navigation-wrapper'>
         <a href='/' className='logo'>{this.lang.brand.name}</a>
-        <nav role="navigation">
+        <nav role="navigation" className='navigation-tools'>
           <ul className='navigation-menu show'>
               <li className='nav-link'><a href='https://github.com/Drake103/weather-app-react'>{this.lang.links.github}</a></li>
           </ul>

@@ -13,7 +13,8 @@ window.titleNode =  document.getElementsByTagName('title')[0];
 
 localStorage.clear();
 let cities = new LocalStorage('CityCollection');
-cities.create({id: 1526273, name: 'Astana'});
+cities.create({ id: 1526273, name: 'Astana' });
+cities.create({ id: 2172797, name: 'Cairns' });
 cities.save();
 
 let env = {

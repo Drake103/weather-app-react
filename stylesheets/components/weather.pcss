@@ -1,5 +1,10 @@
 .weather-index {
     clear: fix;
+
+    ul.cities-list {
+      padding: 0;
+      list-style: none;
+    }
 }
 
 .city-weather-info {
@@ -7,16 +12,19 @@
 }
 
 .city-weather-groups {
+  border-bottom: 1px solid grey;
   $current-weather-group-width: 200px;
   clear: fix;
 
   .current-weather-group {
     float: left;
     width: $current-weather-group-width;
+    border-right: 1px solid grey;
   }
 
   .forecast-weather-group {
-    margin-right: $current-weather-group-width;
+    margin-left: $current-weather-group-width;
+    clear: fix;
 
     .weather-day-info {
       float: left;
@@ -26,4 +34,6 @@
 
 .weather-day-info {
   border: 1px solid grey;
+  padding: 10px;
+  margin: 10px;
 }
