@@ -57,6 +57,19 @@ gulp.task('browser-sync', function() {
   });
 });
 
+gulp.task('fonts', function() {
+  var fontFolders = [
+    './fonts/**/*',
+    './node_modules/font-awesome/fonts/*',
+  ];
+
+  gulp.src(fontFolders)
+    .pipe(gulp.dest('./dist/fonts'));
+
+  return gulp.src(['./node_modules/weather-icons/font/*'])
+    .pipe(gulp.dest('./dist/font'));
+});
+
 gulp.task('css:build', function() {
   var postcss = require('gulp-postcss');
   var rename = require('gulp-rename');
@@ -130,7 +143,7 @@ gulp.task('jade:watch', function() {
   gulp.watch('./template/**/*.jade', ['jade:build']);
 });
 
-gulp.task('default', gulpSequence('clean', ['images:build', 'js:build', 'css:build', 'jade:build']));
+gulp.task('default', gulpSequence('clean', ['fonts', 'images:build', 'js:build', 'css:build', 'jade:build']));
 
 gulp.task('watch', ['js:watch', 'css:watch']);
 

@@ -7,8 +7,28 @@
     }
 }
 
-.city-weather-info {
+.commands-panel {
+  background-color: whitesmoke;
+  height: 100%;
+}
 
+.city-weather-info-wrapper {
+  clear: fix;
+
+  .commands-panel {
+    float: left;
+    width: 30px;
+  }
+
+  .city-weather-info {
+    margin-left: 30px;
+  }
+}
+
+.city-weather-info {
+  .city-header {
+    margin: 10px;
+  }
 }
 
 .city-weather-groups {
@@ -20,6 +40,16 @@
     float: left;
     width: $current-weather-group-width;
     border-right: 1px solid grey;
+
+    .weather-day-info {
+      .weather-icon {
+        text-align: center;
+
+        i {
+          font-size: 2em;
+        }
+      }
+    }
   }
 
   .forecast-weather-group {

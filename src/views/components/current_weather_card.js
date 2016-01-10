@@ -42,10 +42,10 @@ export default class CurrentWeatherCard extends Component {
       <div className='current-weather-group'>
         <div className='weather-day-info'>
           <span>Now</span>
-          <p><img src='/images/weather/weather-clear.png' /></p>
+          <p className='weather-icon'><i className='wi wi-day-sunny'></i></p>
           <p>{info.weather.main}</p>
           <p>
-            <FormattedNumber value={info.main.temp_min} /> - <span>{info.main.temp}</span> {info.main.temp_max}
+            <FormattedNumber value={info.main.temp_min} /> :: <span><FormattedNumber value={info.main.temp} /></span> :: <FormattedNumber value={info.main.temp_max} />
           </p>
         </div>
       </div>);

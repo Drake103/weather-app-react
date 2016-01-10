@@ -7,11 +7,17 @@ export default class CityWeatherInfo extends Component {
   render() {
     let city = this.props.city;
     return (
-      <li className='city-weather-info'>
-        <p>{city.name}</p>
-        <div className='city-weather-groups'>
-          <CurrentWeatherCard city={city} />
-          <ForecastWeatherCityGroup city={city} />
+      <li className='city-weather-info-wrapper'>
+        <div className='commands-panel'>
+          <button />
+          <button />
+        </div>
+        <div className='city-weather-info'>
+          <h3 className='city-header'>{city.name}</h3>
+          <div className='city-weather-groups'>
+            <CurrentWeatherCard city={city} />
+            <ForecastWeatherCityGroup city={city} />
+          </div>
         </div>
       </li>);
   }

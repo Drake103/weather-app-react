@@ -10,12 +10,10 @@ export default class ForecastWeatherDayInfo extends Component {
     return (
       <div className='weather-day-info'>
         <FormattedDate value={dayInfo.date} />
-        <p><img src='/images/weather/weather-clear.png' /></p>
+        <p><i className='wi wi-day-sunny'></i></p>
         <p>{dayInfo.weather.main}</p>
         <p>
-          {dayInfo.temp.min}
-          <span>{dayInfo.temp.day}</span>
-          {dayInfo.temp.max}
+          <FormattedNumber value={dayInfo.temp.min} /> :: <span><FormattedNumber value={dayInfo.temp.day} /></span> :: <FormattedNumber value={dayInfo.temp.max} />
         </p>
       </div>);
   }
