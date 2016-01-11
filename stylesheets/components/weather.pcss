@@ -1,10 +1,8 @@
 .weather-index {
-    clear: fix;
-
-    ul.cities-list {
-      padding: 0;
-      list-style: none;
-    }
+  ul.cities-list {
+    padding: 0;
+    list-style: none;
+  }
 }
 
 .commands-panel {
@@ -13,15 +11,16 @@
 }
 
 .city-weather-info-wrapper {
-  clear: fix;
+  display: table;
+  border: 1px solid grey;
 
   .commands-panel {
-    float: left;
+    display: table-cell;
     width: 30px;
   }
 
   .city-weather-info {
-    margin-left: 30px;
+    display: table-cell;
   }
 }
 
@@ -32,7 +31,6 @@
 }
 
 .city-weather-groups {
-  border-bottom: 1px solid grey;
   $current-weather-group-width: 200px;
   clear: fix;
 
