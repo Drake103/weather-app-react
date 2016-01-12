@@ -1,7 +1,7 @@
 import React from 'react';
 import Component from '../../base/component';
 import { FormattedNumber, FormattedDate } from 'react-intl';
-import FormattedTemperature from './formatted_temperature';
+import FormattedTemperature from '../components/formatted_temperature';
 
 export default class ForecastWeatherDayInfo extends Component {
   render() {

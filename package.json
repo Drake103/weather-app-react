@@ -58,6 +58,7 @@
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "react-intl": "^2.0.0-beta-2",
+    "simple-react-modal": "^0.4.8",
     "uglifyify": "^3.0.1",
     "underscore-deep-extend": "0.0.5",
     "vinyl-source-stream": "^1.1.0",

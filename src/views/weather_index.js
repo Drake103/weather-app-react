@@ -3,16 +3,17 @@ import _ from 'lodash';
 import Component from '../base/component';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
-import CityWeatherInfo from './components/city_weather_info';
+import CityWeatherInfo from './weather/city_weather_info';
 import CitiesStore from '../stores/cities';
 import CitiesActions from '../actions/cities';
 import CurrentWeatherActions from '../actions/current_weather';
+import Modal, {closeStyle} from 'simple-react-modal';
 
 export default class WeatherIndexView extends Component {
   constructor() {
     super();
 
-    _.bindAll(this, 'onChange');
+    _.bindAll(this, 'onChange', 'show', 'close');
   }
 
   initState() {
@@ -36,6 +37,14 @@ export default class WeatherIndexView extends Component {
     CitiesStore.unlisten(this.onChange);
   }
 
+  show() {
+    this.setState({ show: true });
+  }
+
+  close() {
+    this.setState({ show: false });
+  }
+
   render() {
     let cities = this.state.cities || [];
     let cityGroups = _.map(cities, city => <CityWeatherInfo key={city.id} city={city} />);
@@ -45,9 +54,13 @@ export default class WeatherIndexView extends Component {
         <Navbar />
         <div className='content-wrapper'>
           <div className='sidebar-right'>
-            <div>
-              <div>Tools</div>
-              <div>Add city</div>
+            <div className='panel'>
+              <div className='panel-heading'>Tools</div>
+              <div className='panel-body'>
+                <ul>
+                  <li><a onClick={this.show}>Add city</a></li>
+                </ul>
+              </div>
             </div>
           </div>
           <div className='content-body weather-index'>
@@ -57,6 +70,19 @@ export default class WeatherIndexView extends Component {
           </div>
         </div>
         <Footer />
+          <Modal
+            className="test-class" //this will completely overwrite the default css completely
+            style={{ background: 'red' }} //overwrites the default background
+            containerStyle={{ background: 'blue' }} //changes styling on the inner content area
+            containerClassName="test"
+            closeOnOuterClick={true}
+            show={this.state.show}
+            onClose={this.close}>
+
+            <a style={closeStyle} onClick={this.close}>X</a>
+            <div>hey</div>
+
+          </Modal>
       </div>);
   }
 }

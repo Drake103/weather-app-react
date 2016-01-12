@@ -3,7 +3,7 @@ import { FormattedNumber, FormattedDate } from 'react-intl';
 import Component from '../../base/component';
 import CurrentWeatherStore from '../../stores/current_weather';
 import _ from 'lodash';
-import FormattedTemperature from './formatted_temperature';
+import FormattedTemperature from '../components/formatted_temperature';
 
 export default class CurrentWeatherCard extends Component {
   constructor() {
