@@ -71,16 +71,19 @@ export default class WeatherIndexView extends Component {
         </div>
         <Footer />
           <Modal
-            className="test-class" //this will completely overwrite the default css completely
-            style={{ background: 'red' }} //overwrites the default background
-            containerStyle={{ background: 'blue' }} //changes styling on the inner content area
-            containerClassName="test"
+            className='modal-base'
             closeOnOuterClick={true}
             show={this.state.show}
             onClose={this.close}>
 
-            <a style={closeStyle} onClick={this.close}>X</a>
-            <div>hey</div>
+            <div className='modal-heading'>
+              <h5>Modal header</h5>
+              <a className='btn-close' onClick={this.close.bind(this)}>
+                <i className='fa fa-times'></i>
+              </a>
+            </div>
+            <div className='modal-body'></div>
+            <div className='modal-footer'></div>
 
           </Modal>
       </div>);
