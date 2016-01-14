@@ -9,7 +9,7 @@ export default class CityWeatherInfo extends Component {
     return (
       <li className='city-weather-info-wrapper'>
         <div className='commands-panel'>
-          <a className='btn btn-default'><i className='fa fa-times'></i></a>
+          <a className='btn btn-default btn-sm'><i className='fa fa-times'></i></a>
         </div>
         <div className='city-weather-info'>
           <h3 className='city-header'>{city.name}</h3>

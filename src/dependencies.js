@@ -12,7 +12,7 @@ window.appNode = document.getElementById('app-node');
 window.titleNode =  document.getElementsByTagName('title')[0];
 
 localStorage.clear();
-let cities = new LocalStorage('CityCollection');
+let cities = new LocalStorage('UserCityCollection');
 cities.create({ id: 1526273, name: 'Astana' });
 cities.create({ id: 2172797, name: 'Cairns' });
 cities.save();

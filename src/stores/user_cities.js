@@ -1,15 +1,15 @@
 import alt from '../alt';
-import CitiesActions from '../actions/cities';
+import UserCitiesActions from '../actions/user_cities';
 import CurrentWeatherActions from '../actions/current_weather';
 import ForecastWeatherActions from '../actions/forecast_weather';
 import _ from 'lodash';
 
-class CitiesStore {
+class UserCitiesStore {
   constructor() {
     this.cities = [];
 
     this.bindListeners({
-      handleUpdateCities: CitiesActions.UPDATE_CITIES,
+      handleUpdateCities: UserCitiesActions.UPDATE_CITIES,
     });
   }
 
@@ -23,4 +23,4 @@ class CitiesStore {
   }
 }
 
-export default alt.createStore(CitiesStore);
+export default alt.createStore(UserCitiesStore);

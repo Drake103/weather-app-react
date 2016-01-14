@@ -4,8 +4,8 @@ import Component from '../base/component';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import CityWeatherInfo from './weather/city_weather_info';
-import CitiesStore from '../stores/cities';
-import CitiesActions from '../actions/cities';
+import UserCitiesStore from '../stores/user_cities';
+import UserCitiesActions from '../actions/user_cities';
 import CurrentWeatherActions from '../actions/current_weather';
 import Modal, {closeStyle} from 'simple-react-modal';
 
@@ -17,7 +17,7 @@ export default class WeatherIndexView extends Component {
   }
 
   initState() {
-    return CitiesStore.getState();
+    return UserCitiesStore.getState();
   }
 
   title() {
@@ -29,12 +29,12 @@ export default class WeatherIndexView extends Component {
   }
 
   componentDidMount() {
-    CitiesStore.listen(this.onChange);
-    CitiesActions.fetchCities();
+    UserCitiesStore.listen(this.onChange);
+    UserCitiesActions.fetchCities();
   }
 
   componentWillUnmount() {
-    CitiesStore.unlisten(this.onChange);
+    UserCitiesStore.unlisten(this.onChange);
   }
 
   show() {
@@ -82,7 +82,13 @@ export default class WeatherIndexView extends Component {
                 <i className='fa fa-times'></i>
               </a>
             </div>
-            <div className='modal-body'></div>
+            <div className='modal-body'>
+              <input type='text' />
+              <ul>
+
+
+              </ul>
+            </div>
             <div className='modal-footer'></div>
 
           </Modal>

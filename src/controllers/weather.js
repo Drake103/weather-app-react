@@ -1,13 +1,13 @@
 import Controller from '../base/controller';
 import WeatherIndexView from '../views/weather_index';
-import CityCollection from '../collections/cities';
+import UserCityCollection from '../collections/user_cities';
 import Q from 'q';
 
 export default class WeatherController extends Controller {
   index(ctx, done) {
-    let cities = this.wrapModel(new CityCollection());
+    let cities = this.wrapModel(new UserCityCollection());
     this.setInitData({
-      CitiesStore: {
+      UserCitiesStore: {
         cities: cities.localStorage.findAll(),
       },
     });
@@ -20,7 +20,7 @@ export default class WeatherController extends Controller {
     let dfd = Q.all([this.xhrs.cities]);
     dfd.done(() => {
       this.setInitData({
-        CitiesStore: {
+        UserCitiesStore: {
           cities: cities.toJSON(),
         },
       });
