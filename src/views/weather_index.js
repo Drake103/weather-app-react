@@ -7,7 +7,8 @@ import CityWeatherInfo from './weather/city_weather_info';
 import UserCitiesStore from '../stores/user_cities';
 import UserCitiesActions from '../actions/user_cities';
 import CurrentWeatherActions from '../actions/current_weather';
-import Modal, {closeStyle} from 'simple-react-modal';
+import AddCityModal from './weather/add_city_modal';
+import vent from '../modules/vent';
 
 export default class WeatherIndexView extends Component {
   constructor() {
@@ -38,7 +39,7 @@ export default class WeatherIndexView extends Component {
   }
 
   show() {
-    this.setState({ show: true });
+    vent.trigger('showAddCityModal');
   }
 
   close() {
@@ -70,28 +71,7 @@ export default class WeatherIndexView extends Component {
           </div>
         </div>
         <Footer />
-          <Modal
-            className='modal-base'
-            closeOnOuterClick={true}
-            show={this.state.show}
-            onClose={this.close}>
-
-            <div className='modal-heading'>
-              <h5>Modal header</h5>
-              <a className='btn-close' onClick={this.close.bind(this)}>
-                <i className='fa fa-times'></i>
-              </a>
-            </div>
-            <div className='modal-body'>
-              <input type='text' />
-              <ul>
-
-
-              </ul>
-            </div>
-            <div className='modal-footer'></div>
-
-          </Modal>
+        <AddCityModal />
       </div>);
   }
 }
