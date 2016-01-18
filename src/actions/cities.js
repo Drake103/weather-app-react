@@ -1,5 +1,6 @@
 import alt from '../alt';
 import CityCollection from '../collections/cities';
+import Q from 'q';
 
 class CitiesActions {
   constructor() {
@@ -10,7 +11,7 @@ class CitiesActions {
     if (!searchStr) return;
 
     let cities = new CityCollection();
-    currentWeather.searchStr = searchStr;
+    cities.searchStr = searchStr;
 
     let xhrs = cities.fetch();
     var dfd = Q.all([xhrs]);

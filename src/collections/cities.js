@@ -12,15 +12,12 @@ export default class CityCollection extends Backbone.Collection {
   }
 
   url() {
-    return this.apiRoot + '/citiesJSON?q=' + this.searchStr + '&units=metric&appid=2de143494c0b295cca9337e1e96b00e0';
+    return this.apiRoot + '/searchJSON?q=' + this.searchStr + '&maxRows=10&username=' + config.geonamesApiUsername;
   }
 
   parse(resp) {
-    this.city = resp.city;
-    this.count = resp.count;
+    this.count = resp.totalResultsCount;
 
-    _.forEach(resp.list, x => x.date = new Date(x.dt * 1000));
-
-    return resp.list;
+    return resp.geonames;
   }
 }

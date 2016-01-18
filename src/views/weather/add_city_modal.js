@@ -11,6 +11,7 @@ export default class AddCityModal extends Component {
     super();
 
     _.bindAll(this, 'onChange', 'show', 'close');
+    this.onSearchStrChanged = _.debounce(this.onSearchStrChanged, 1000);
   }
 
   initState() {
@@ -45,8 +46,15 @@ export default class AddCityModal extends Component {
     this.setState({ show: false });
   }
 
+  onSearchStrChanged(evt) {
+    let searchStr = evt.target.value;
+    CitiesActions.fetchCities(searchStr);
+  }
+
   render() {
     let cities = this.state.cities || [];
+
+    let cityOptions = _.map(cities, c => <li key={c.geonameId}>{c.name}</li>);
 
     return (
       <Modal
@@ -56,16 +64,17 @@ export default class AddCityModal extends Component {
         onClose={this.close}>
 
         <div className='modal-heading'>
-          <h5>Modal header</h5>
+          <h5>Add city</h5>
           <a className='btn-close' onClick={this.close.bind(this)}>
             <i className='fa fa-times'></i>
           </a>
         </div>
         <div className='modal-body'>
-          <input type='text' />
+          <div>
+            <input type='text' onChange={this.onSearchStrChanged} />
+          </div>
           <ul>
-
-
+            {cityOptions}
           </ul>
         </div>
         <div className='modal-footer'></div>

@@ -3,6 +3,6 @@ export default {
   apiKey: 'heregoesapikey',
   openweathermapApi: 'http://api.openweathermap.org/data/2.5',
   openweathermapApiKey: '',
-  geonamesApi: 'http://http://api.geonames.org',
-  geonamesApiUsername: '',
+  geonamesApi: 'http://api.geonames.org',
+  geonamesApiUsername: 'drake103',
 };
