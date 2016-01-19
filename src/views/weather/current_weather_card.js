@@ -30,7 +30,7 @@ export default class CurrentWeatherCard extends Component {
 
   render() {
     let city = this.props.city;
-    let info = this.state.weatherInfos[city.id];
+    let info = this.state.weatherInfos[city.geonameId];
 
     if (!info) {
       return (

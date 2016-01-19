@@ -48,7 +48,7 @@ export default class WeatherIndexView extends Component {
 
   render() {
     let cities = this.state.cities || [];
-    let cityGroups = _.map(cities, city => <CityWeatherInfo key={city.id} city={city} />);
+    let cityGroups = _.map(cities, city => <CityWeatherInfo key={city.geonameId} city={city} />);
 
     return (
       <div className='page-wrapper'>

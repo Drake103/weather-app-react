@@ -4,13 +4,14 @@ import Component from '../../base/component';
 import Modal from 'simple-react-modal';
 import CitiesStore from '../../stores/cities';
 import CitiesActions from '../../actions/cities';
+import UserCitiesActions from '../../actions/user_cities';
 import vent from '../../modules/vent';
 
 export default class AddCityModal extends Component {
   constructor() {
     super();
 
-    _.bindAll(this, 'onChange', 'show', 'close');
+    _.bindAll(this, 'onChange', 'show', 'close', 'addCity');
     this.onSearchStrChanged = _.debounce(this.onSearchStrChanged, 1000);
   }
 
@@ -51,10 +52,15 @@ export default class AddCityModal extends Component {
     CitiesActions.fetchCities(searchStr);
   }
 
+  addCity(city) {
+    UserCitiesActions.addCity(city);
+    this.close();
+  }
+
   render() {
     let cities = this.state.cities || [];
 
-    let cityOptions = _.map(cities, c => <li key={c.geonameId}>{c.name}</li>);
+    let cityOptions = _.map(cities, c => <CityListItem key={c.geonameId} addCityHandler={this.addCity} city={c}></CityListItem>);
 
     return (
       <Modal
@@ -71,13 +77,31 @@ export default class AddCityModal extends Component {
         </div>
         <div className='modal-body'>
           <div>
-            <input type='text' onChange={this.onSearchStrChanged} />
+            <input type='text' placeholder='Enter city name' onChange={this.onSearchStrChanged} />
           </div>
-          <ul>
+          <ul className='cities-list'>
             {cityOptions}
           </ul>
         </div>
         <div className='modal-footer'></div>
       </Modal>);
+  }
+}
+
+class CityListItem extends Component {
+  onItemClicked(city) {
+    this.props.onCityClicked(city);
+  }
+
+  render() {
+    let city = this.props.city;
+    let onCityClicked = this.props.addCityHandler;
+
+    return (
+      <li onClick={onCityClicked.bind(this, city)}>
+        {city.name}
+      </li>
+    );
+
   }
 }

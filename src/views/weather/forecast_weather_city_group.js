@@ -29,7 +29,7 @@ export default class ForecastWeatherCityGroup extends Component {
 
   render() {
     let city = this.props.city;
-    let cityWeatherInfos = this.state.weatherInfoByCities[city.id];
+    let cityWeatherInfos = this.state.weatherInfoByCities[city.geonameId];
 
     let dayWeatherInfos = _.map(cityWeatherInfos, di => <ForecastWeatherDayInfo key={di.dt} dayInfo={di} />);
     return (

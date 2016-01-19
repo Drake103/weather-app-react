@@ -16,7 +16,7 @@ class UserCitiesStore {
   handleUpdateCities(cities) {
     this.cities = cities;
 
-    let citiesIds = _.map(cities, c => c.id);
+    let citiesIds = _.map(cities, c => c.geonameId);
     CurrentWeatherActions.fetchCurrentWeather(citiesIds);
 
     _.forEach(citiesIds, cityId => ForecastWeatherActions.fetchByCity(cityId));
