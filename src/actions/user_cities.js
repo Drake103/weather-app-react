@@ -22,6 +22,18 @@ class UserCitiesActions {
       this.actions.updateCities(cities.localStorage.findAll());
     });
   }
+
+  removeCity(city) {
+    let cities = new UserCityCollection();
+
+    //let savedCity = cities.localStorage.find(c => c.geonameId == city.geonameId);
+    let xhrs = cities.localStorage.destroy(city);
+    var dfd = Q.all([xhrs]);
+
+    dfd.done(() => {
+      this.actions.updateCities(cities.localStorage.findAll());
+    });
+  }
 }
 
 export default alt.createActions(UserCitiesActions);

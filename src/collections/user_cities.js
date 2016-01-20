@@ -10,8 +10,4 @@ export default class UserCities extends Backbone.Collection {
     this.count = 0;
     this.localStorage = new LocalStorage('UserCityCollection');
   }
-
-  parse(resp) {
-    return [];
-  }
 }
