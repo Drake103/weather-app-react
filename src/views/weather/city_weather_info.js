@@ -18,7 +18,7 @@ export default class CityWeatherInfo extends Component {
           <a className='btn btn-default btn-sm' onClick={this.removeCity.bind(this, city)}><i className='fa fa-times'></i></a>
         </div>
         <div className='city-weather-info'>
-          <h3 className='city-header'>{city.name}</h3>
+          <h3 className='city-header'>{city.name}, {city.countryCode} ({city.lng} {city.lat})</h3>
           <div className='city-weather-groups'>
             <CurrentWeatherCard city={city} />
             <ForecastWeatherCityGroup city={city} />

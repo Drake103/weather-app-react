@@ -38,12 +38,16 @@ export default class CurrentWeatherCard extends Component {
       );
     }
 
+    let weatherList = _.map(info.weather, w => <li key={w.id}>{w.main} - {w.description}</li>);
+
     return (
       <div className='current-weather-group'>
         <div className='weather-day-info'>
           <span>Now</span>
           <p className='weather-icon'><i className='wi wi-day-sunny'></i></p>
-          <p>{info.weather.main}</p>
+          <ul>
+            {weatherList}
+          </ul>
           <p>
             <FormattedNumber value={info.main.temp_min} /> :: <span><FormattedNumber value={info.main.temp} /></span> :: <FormattedNumber value={info.main.temp_max} />
           </p>
