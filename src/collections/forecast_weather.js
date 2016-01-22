@@ -12,7 +12,7 @@ export default class ForecastWeather extends Backbone.Collection {
   }
 
   url() {
-    return this.apiRoot + '/forecast/daily?id=' + this.cityId + '&units=metric&appid=2de143494c0b295cca9337e1e96b00e0';
+    return this.apiRoot + '/forecast/daily?id=' + this.cityId + '&units=metric&appid=' + config.openweathermapApiKey;
   }
 
   parse(resp) {

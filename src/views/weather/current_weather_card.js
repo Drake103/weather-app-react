@@ -38,20 +38,34 @@ export default class CurrentWeatherCard extends Component {
       );
     }
 
-    let weatherList = _.map(info.weather, w => <li key={w.id}>{w.main} - {w.description}</li>);
+    let weatherList = _.map(info.weather, w => <li key={w.id}><WeatherDescription weather={w} /></li>);
 
     return (
       <div className='current-weather-group'>
         <div className='weather-day-info'>
           <span>Now</span>
-          <p className='weather-icon'><i className='wi wi-day-sunny'></i></p>
           <ul>
             {weatherList}
           </ul>
           <p>
-            <FormattedNumber value={info.main.temp_min} /> :: <span><FormattedNumber value={info.main.temp} /></span> :: <FormattedNumber value={info.main.temp_max} />
+            <FormattedNumber value={info.main.temp_min} /> <span className='main-temp'><FormattedNumber value={info.main.temp} /></span> <FormattedNumber value={info.main.temp_max} />
           </p>
         </div>
       </div>);
+  }
+}
+
+class WeatherDescription extends Component {
+
+  render() {
+    let w = this.props.weather;
+
+    return (
+      <div className='weather-description'>
+        <p className='weather-icon'><i className='wi wi-day-sunny'></i></p>
+        {w.main}
+        <br/>{w.description}
+      </div>
+    );
   }
 }

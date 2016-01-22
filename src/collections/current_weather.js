@@ -12,7 +12,7 @@ export default class CurrentWeather extends Backbone.Collection {
   }
 
   url() {
-    return this.apiRoot + '/group?id=' + this.citiesIds.join(',') + '&units=metric&appid=2de143494c0b295cca9337e1e96b00e0';
+    return this.apiRoot + '/group?id=' + this.citiesIds.join(',') + '&units=metric&appid=' + config.openweathermapApiKey;
   }
 
   parse(resp) {
